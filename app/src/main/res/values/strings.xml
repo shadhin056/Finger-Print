@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Finger Print</string>
+    <string name="password_title">password</string>
+    <string name="password_message">message</string>
+    <string name="fingerprint_title">title</string>
+    <string name="fingerprint_message">message</string>
 </resources>
