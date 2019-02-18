@@ -1,11 +1,8 @@
 package com.example.fingerprint;
 
 import android.content.Intent;
-import android.os.Build;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -40,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .callback(this, "KeyName1")
                     .show();
         }else {
-
            // startActivity(new Intent(Settings.ACTION_FINGERPRINT_ENROLL));
             startActivityForResult(new Intent(Settings.ACTION_SECURITY_SETTINGS), 0);
         }
