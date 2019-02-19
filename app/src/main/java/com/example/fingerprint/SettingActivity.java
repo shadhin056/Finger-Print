@@ -53,6 +53,8 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         if(globalVariable.getFingerPrintEnable().equals("Yes")){
             android.support.v7.widget.SwitchCompat  btnFingerPrintEnable = (SwitchCompat) findViewById(R.id.btnFingerPrintEnable);
             btnFingerPrintEnable.setChecked(true);
+            ll2.setVisibility(View.GONE);
+            ll1.setVisibility(View.VISIBLE);
         }else {
             android.support.v7.widget.SwitchCompat  btnFingerPrintEnable = (SwitchCompat) findViewById(R.id.btnFingerPrintEnable);
             btnFingerPrintEnable.setChecked(false);
@@ -83,6 +85,15 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
     }
     public void itemClicked(View v) {
+
+
+        /*FingerprintDialog.initialize(this)
+                .title(R.string.fingerprint_title)
+                .message(R.string.fingerprint_message)
+                .callback(this, "KeyName1")
+                .show();*/
+
+
         if(FingerprintDialog.isAvailable(this)) {
 
         }else {
@@ -96,13 +107,19 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
         }
 
+
         if(globalVariable.getLock().equals("Yes")){
 
         }
         //code to check if this checkbox is checked!
         android.support.v7.widget.SwitchCompat checkBox = (SwitchCompat) v;
         if(checkBox.isChecked()){
-            globalVariable.setFingerPrintEnable("YES");
+            FingerprintDialog.initialize(this)
+                    .title(R.string.fingerprint_title)
+                    .message(R.string.fingerprint_message)
+                    .callback(this, "KeyName1")
+                    .show();
+           // globalVariable.setFingerPrintEnable("Yes");
             Toast toast = Toast.makeText(getApplicationContext(), ""+globalVariable.getFingerPrintEnable(), Toast.LENGTH_SHORT);
             toast.show();
         }else {
@@ -126,12 +143,16 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     }
     @Override
     public void onAuthenticationSucceeded() {
-
+        globalVariable.setFingerPrintEnable("Yes");
+        android.support.v7.widget.SwitchCompat  btnFingerPrintEnable = (SwitchCompat) findViewById(R.id.btnFingerPrintEnable);
+        btnFingerPrintEnable.setChecked(true);
     }
 
     @Override
     public void onAuthenticationCancel() {
-
+        globalVariable.setFingerPrintEnable("No");
+        android.support.v7.widget.SwitchCompat  btnFingerPrintEnable = (SwitchCompat) findViewById(R.id.btnFingerPrintEnable);
+        btnFingerPrintEnable.setChecked(false);
     }
 
     @Override
@@ -153,7 +174,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     public boolean onPasswordCheck(String password) {
         if(password.equals("admin")){
             globalVariable.setFingerPrintEnable("Yes");
-            globalVariable.setFingerPrintEnable("No");
+            globalVariable.setLock("No");
             ll1.setVisibility(View.VISIBLE);
             ll2.setVisibility(View.GONE);
             android.support.v7.widget.SwitchCompat  btnFingerPrintEnable = (SwitchCompat) findViewById(R.id.btnFingerPrintEnable);
