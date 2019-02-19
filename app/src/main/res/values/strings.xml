@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Finger Print</string>
-    <string name="password_title">password</string>
-    <string name="password_message">message</string>
-    <string name="fingerprint_title">title</string>
-    <string name="fingerprint_message">message</string>
+    <string name="password_title">Enter Your Password</string>
+    <string name="password_message">To enable FingerPrint Login</string>
+    <string name="fingerprint_title">Please Touch your finger into the FingerPrint Sensor</string>
+    <string name="fingerprint_message">If data Match Then You can Get access</string>
 </resources>

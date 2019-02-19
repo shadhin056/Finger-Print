@@ -19,5 +19,9 @@
     <color name="green_500">#4CAF50</color>
     <color name="purple_300">#BA68C8</color>
 
+    <color name="blue_grey_300">#90A4AE</color>
 
+    <color name="grey_60">#666666</color>
+    <color name="blue_600">#1E88E5</color>
+    <color name="colorPrimaryLight">#1E88E5</color>
 </resources>
